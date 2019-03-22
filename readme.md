@@ -1,23 +1,23 @@
 # API Patterns
-This page is a collection of "notes to self" on how to go about designing and implementing APIs. I'll reference the sites the information comes from. As this expands, I'll add swagger examples and provide those files in the repo.
+This page is a collection of "notes to self" on how to go about designing and implementing APIs. Of course, many sites already list API guidelines. This page lists the collection of guidelines I prefer to follow during development. I'll reference the sites the information comes from. As this expands, I'll add swagger examples and provide those files in the repo.
 
 # Resource, Request and Response Guidelines
 ## Headers
 TODO: discuss caching, etags, correlation ids, 
 
 ## Resources (URIs)
-1. use nouns and not verbs
+1. The basics: use nouns and not verbs
 `/profiles/1234` vs. `/get-profile/1234 `
-1. use Plural resources `/profiles`
+1. use plural resource names `/profiles`
 1. delimit complex names using spinal case (hyphens) in all lower case words, not underscores or a camel case variation.
 ```
-/profiles/1234/first-name   : good and readable
-/profiles/1234/firstname    : not as good but still readable
-/profiles/1234/first_name   : not good
+`/profiles/1234/first-name  `: good and readable
+`profiles/1234/firstname    `: not as good but still readable
+`profiles/1234/first_name   `: not good
 ```
 ## Query Parameters
 1. use case-sensitive keys `/profiles?firstName=joe&lastName=smith`
-2. nice that the query parameter names can match the key name in a json payload. For keys can match json keys returned in a payload
+1. benefit: query parameter name formats can match the key name in a json payload. For keys can match json keys returned in a payload
 1. an array of values for a parameter should be passed as a comma-delimited list. This is the default approach in swagger [see items collection format](https://www.restapitutorial.com/httpstatuscodes.html) . Example: `colors=brown,blue,green`. Other formats are acceptable too and this varies a bit depending on the API. So use CSV format as the default but recognize that other formats may be better for consistency within an API. See Swagger link for more details.
 
 ## HTTP Return Status Codes
