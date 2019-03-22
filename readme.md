@@ -1,5 +1,5 @@
 # API Patterns
-This page is a collection of "notes to self" on how to go about designing and implementing APIs. I'll reference the sites the information comes from.
+This page is a collection of "notes to self" on how to go about designing and implementing APIs. I'll reference the sites the information comes from. As this expands, I'll add swagger examples and provide those files in the repo.
 
 # Resource, Request and Response Guidelines
 ## Headers
@@ -21,18 +21,18 @@ TODO: discuss caching, etags, correlation ids,
 1. an array of values for a parameter should be passed as a comma-delimited list. This is the default approach in swagger [see items collection format](https://www.restapitutorial.com/httpstatuscodes.html) . Example: `colors=brown,blue,green`. Other formats are acceptable too and this varies a bit depending on the API. So use CSV format as the default but recognize that other formats may be better for consistency within an API. See Swagger link for more details.
 
 ## HTTP Return Status Codes
-### Typcial Use of Codes
+### Typical Use of Codes
 - **200** - OK - response body returned
-- **201** - new resource was created. Response body not returned by default. However, query parameter could be used to "optionally" return the created resource if the client would like the representation returned.
+- **201** - new resource was created. Response body not returned by default.
 - **400** - Bad Request - indicates something was wrong with the request. Return this for validation errors on data that is sent by the client and possibly fixable before re-try.
 - **401** - Unauthorized - authorization is needed to access the resource. The request has not passed authorization.
 - **403** - Forbidden - the request was understood but access is 
 - **404** - Not Found - the  specific resource that was requested could not be found. 
 - **408** - Request timeout - the request was not processed completely before a timeout occurred. The request "may have" succeeded. However, the client can not be sure. Idempotent requests can be retried. 
-TODO: discuss timeout 
 
 ### Special HTTP Status Situations
 - When a search or find results in 0 results, return a 200, not a 404. In this case, the search was successful. However, the criteria simply didn't result in any matches. 
+- while a 201 does not typically return a payload, one can optionally return the representation of the resource if directed when a known query parameter is provided in the request. Example: `POST /profiles?returnResource=true`
 
 # Paging
 TODO - refer to Spring Data reference 
