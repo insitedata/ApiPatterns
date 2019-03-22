@@ -3,7 +3,7 @@ This page is a collection of "notes to self" on how to go about designing and im
 
 # Resource, Request and Response Guidelines
 ## Headers
-TODO
+TODO: discuss caching, etags, correlation ids, 
 
 ## Resources (URIs)
 1. use nouns and not verbs
@@ -15,9 +15,10 @@ TODO
 /profiles/1234/firstname    : not as good but still readable
 /profiles/1234/first_name   : not good
 ```
-### Query Parameters
+## Query Parameters
 1. use case-sensitive keys `/profiles?firstName=joe&lastName=smith`
 2. nice that the query parameter names can match the key name in a json payload. For keys can match json keys returned in a payload
+1. an array of values for a parameter should be passed as a comma-delimited list. This is the default approach in swagger [see items collection format](https://www.restapitutorial.com/httpstatuscodes.html) . Example: `colors=brown,blue,green`. Other formats are acceptable too and this varies a bit depending on the API. So use CSV format as the default but recognize that other formats may be better for consistency within an API. See Swagger link for more details.
 
 ## HTTP Return Status Codes
 ### Typcial Use of Codes
@@ -27,9 +28,10 @@ TODO
 - **401** - Unauthorized - authorization is needed to access the resource. The request has not passed authorization.
 - **403** - Forbidden - the request was understood but access is 
 - **404** - Not Found - the  specific resource that was requested could not be found. 
+- **408** - Request timeout - the request was not processed completely before a timeout occurred. The request "may have" succeeded. However, the client can not be sure. Idempotent requests can be retried. 
 TODO: discuss timeout 
 
-### Special Return Status Situations
+### Special HTTP Status Situations
 - When a search or find results in 0 results, return a 200, not a 404. In this case, the search was successful. However, the criteria simply didn't result in any matches. 
 
 # Paging
@@ -63,6 +65,9 @@ description: >
 - Timeout coordination - when a chain of resources process a request, coordinate the timeouts so that the very back-end resource has the shortest timeout. Each layer above as a slightly shorter timeout. If timeouts are not coordinated and an API higher in the calling chain times out before the service it calls, a transaction may process while the client receives an error.
 
 # References
-1. [5 Basic REST API Design Guidelines](https://blog.restcase.com/5-basic-rest-api-design-guidelines): URI resource guidelines
-2. [Spring Data](https://docs.spring.io/spring-data/rest/docs/current/reference/html/#paging-and-sorting): paging and link guidelines
-
+1. [REST API Tutorial](https://www.restapitutorial.com/httpstatuscodes.html): HTTP status codes
+2. [5 Basic REST API Design Guidelines](https://blog.restcase.com/5-basic-rest-api-design-guidelines): URI resource guidelines
+3. [Spring Data](https://docs.spring.io/spring-data/rest/docs/current/reference/html/#paging-and-sorting): paging and link guidelines
+4. [OpenAPI (Swagger) 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#items-object), [Developer Docs](https://swagger.io/docs/specification/2-0/basic-structure/)
+5. [OpenAPI (Swagger) 3.0.2 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md), [Developer Docs](https://swagger.io/docs/specification/basic-structure/)
+6. [RAML 1.0 Specification](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md)
