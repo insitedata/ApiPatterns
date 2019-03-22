@@ -11,9 +11,9 @@ TODO: discuss caching, etags, correlation ids,
 1. use plural resource names `/profiles`
 1. delimit complex names using spinal case (hyphens) in all lower case words, not underscores or a camel case variation.
 
-`/profiles/1234/first-name  `: good and readable
-`profiles/1234/firstname    `: not as good but still readable
-`profiles/1234/first_name   `: not good
+`/profiles/1234/first-name`: good and readable
+`profiles/1234/firstname`: not as good but still readable
+`profiles/1234/first_name`: not good
 
 ## Query Parameters
 1. use case-sensitive keys `/profiles?firstName=joe&lastName=smith`
