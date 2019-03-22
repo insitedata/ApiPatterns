@@ -48,6 +48,8 @@ Payload: size, totalElements, totalPages, number
 - Error response contains a list of error objects
 
 # Swagger 2.0 Guidelines
+### Tag Strategy
+### Operation ID use
 ### Currency and Decimals
 All decimal objects that require precision should be passed as strings, not as numbers. Numbers can be interpretted differently by different engines. Passing values as strings is safer.
 An alternative is to multiple the value by the number of decimal places the value contains.
