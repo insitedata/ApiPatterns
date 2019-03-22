@@ -67,7 +67,8 @@ description: >
 # References
 1. [REST API Tutorial](https://www.restapitutorial.com/httpstatuscodes.html): HTTP status codes
 2. [5 Basic REST API Design Guidelines](https://blog.restcase.com/5-basic-rest-api-design-guidelines): URI resource guidelines
-3. [Spring Data](https://docs.spring.io/spring-data/rest/docs/current/reference/html/#paging-and-sorting): paging and link guidelines
-4. [OpenAPI (Swagger) 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#items-object), [Developer Docs](https://swagger.io/docs/specification/2-0/basic-structure/)
-5. [OpenAPI (Swagger) 3.0.2 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md), [Developer Docs](https://swagger.io/docs/specification/basic-structure/)
-6. [RAML 1.0 Specification](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md)
+3. [Yet Another RESTful API Standard (YARAS)](https://github.com/darrin/yaras/blob/master/restful-standards.md): good, common sense API advice
+4. [Spring Data](https://docs.spring.io/spring-data/rest/docs/current/reference/html/#paging-and-sorting): paging and link guidelines
+5. [OpenAPI (Swagger) 2.0 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#items-object), [Developer Docs](https://swagger.io/docs/specification/2-0/basic-structure/)
+6. [OpenAPI (Swagger) 3.0.2 Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md), [Developer Docs](https://swagger.io/docs/specification/basic-structure/)
+7. [RAML 1.0 Specification](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md)
