@@ -10,11 +10,11 @@ TODO: discuss caching, etags, correlation ids,
 `/profiles/1234` vs. `/get-profile/1234 `
 1. use plural resource names `/profiles`
 1. delimit complex names using spinal case (hyphens) in all lower case words, not underscores or a camel case variation.
-```
+
 `/profiles/1234/first-name  `: good and readable
 `profiles/1234/firstname    `: not as good but still readable
 `profiles/1234/first_name   `: not good
-```
+
 ## Query Parameters
 1. use case-sensitive keys `/profiles?firstName=joe&lastName=smith`
 1. benefit: query parameter name formats can match the key name in a json payload. For keys can match json keys returned in a payload
