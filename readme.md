@@ -315,7 +315,7 @@ follow a consistent format. Pick a standard and stick with it. Some options are:
  - UpperCameCase
  - lowerCamelCase
 
-### Swagger Naming Conventions
+## Swagger Naming Conventions
 #### Definitions
 use Upper Camel Case
 
@@ -330,7 +330,7 @@ TODO discuss use of string and format
 
 
 ### References
-
+ 
 Google JSON Style Guide
 
 <https://google.github.io/styleguide/jsoncstyleguide.xml#params>
